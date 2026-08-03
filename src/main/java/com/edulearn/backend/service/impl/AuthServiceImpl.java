@@ -10,6 +10,7 @@ import com.edulearn.backend.service.AuthService;
 import com.edulearn.backend.util.EmailUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -22,6 +23,8 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final EmailUtil emailUtil;
+    @Value("${app.frontend-url}")
+    private String frontendUrl;
 
     public AuthServiceImpl(UserRepository userRepository,
                            PasswordResetTokenRepository tokenRepository,
@@ -93,7 +96,7 @@ public class AuthServiceImpl implements AuthService {
         resetToken.setExpiryDate(LocalDateTime.now().plusMinutes(30));
         tokenRepository.save(resetToken);
 
-        String resetLink = "http://localhost:5173/reset-password?token=" + token;
+        String resetLink = frontendUrl + "/reset-password?token=" + token;
 
         emailUtil.sendEmail(
                 user.getEmail(),

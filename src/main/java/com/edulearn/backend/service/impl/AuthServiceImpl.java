@@ -54,7 +54,6 @@ public class AuthServiceImpl implements AuthService {
 
         userRepository.save(user);
 
-        // Email bhejना - agar fail ho jaye toh bhi registration successful maano
         try {
             emailUtil.sendEmail(
                     user.getEmail(),

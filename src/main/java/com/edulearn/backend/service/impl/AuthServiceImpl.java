@@ -41,6 +41,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String register(RegisterRequest request) {
         request.setEmail(request.getEmail().toLowerCase().trim());
+
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email already registered");
         }
@@ -49,15 +50,20 @@ public class AuthServiceImpl implements AuthService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(User.Role.STUDENT); // default role — Admin set manually in DB
+        user.setRole(User.Role.STUDENT);
 
         userRepository.save(user);
 
-        emailUtil.sendEmail(
-                user.getEmail(),
-                "Welcome to EduLearn!",
-                "Hi " + user.getName() + ",\n\nYour account has been created successfully. Happy learning!\n\n— EduLearn Team"
-        );
+        // Email bhejना - agar fail ho jaye toh bhi registration successful maano
+        try {
+            emailUtil.sendEmail(
+                    user.getEmail(),
+                    "Welcome to EduLearn!",
+                    "Hi " + user.getName() + ",\n\nYour account has been created successfully. Happy learning!\n\n— EduLearn Team"
+            );
+        } catch (Exception e) {
+            System.out.println("Email sending failed but registration succeeded: " + e.getMessage());
+        }
 
         return "Registered successfully";
     }

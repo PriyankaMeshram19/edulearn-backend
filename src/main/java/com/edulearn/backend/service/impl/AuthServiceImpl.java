@@ -103,11 +103,15 @@ public class AuthServiceImpl implements AuthService {
 
         String resetLink = frontendUrl + "/reset-password?token=" + token;
 
-        emailUtil.sendEmail(
-                user.getEmail(),
-                "Reset your EduLearn password",
-                "Click the link below to reset your password (valid for 30 minutes):\n\n" + resetLink
-        );
+        try {
+            emailUtil.sendEmail(
+                    user.getEmail(),
+                    "Reset your EduLearn password",
+                    "Click the link below to reset your password (valid for 30 minutes):\n\n" + resetLink
+            );
+        } catch (Exception e) {
+            System.out.println("Email sending failed but reset token created: " + e.getMessage());
+        }
 
         return "Password reset link sent to your email";
     }

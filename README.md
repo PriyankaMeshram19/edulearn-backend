@@ -60,3 +60,6 @@ Students can browse courses, purchase them through a simulated payment gateway, 
 ---
 
 ## 📁 Project Structure
+
+edulearn-backend/ ├── src/main/java/com/edulearn/backend/ │ ├── config/ # Security & CORS configuration │ ├── controller/ # REST API controllers │ ├── dto/ # Request/response DTOs │ ├── entity/ # JPA entities │ ├── repository/ # Spring Data JPA repositories │ ├── security/ # JWT filter & utility │ ├── service/ # Business logic (interfaces) │ └── service/impl/ # Business logic (implementations) ├── src/main/resources/ │ └── application.properties ├── Dockerfile └── pom.xml
+

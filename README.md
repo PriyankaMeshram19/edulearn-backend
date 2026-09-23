@@ -61,5 +61,124 @@ Students can browse courses, purchase them through a simulated payment gateway, 
 
 ## 📁 Project Structure
 
-edulearn-backend/ ├── src/main/java/com/edulearn/backend/ │ ├── config/ # Security & CORS configuration │ ├── controller/ # REST API controllers │ ├── dto/ # Request/response DTOs │ ├── entity/ # JPA entities │ ├── repository/ # Spring Data JPA repositories │ ├── security/ # JWT filter & utility │ ├── service/ # Business logic (interfaces) │ └── service/impl/ # Business logic (implementations) ├── src/main/resources/ │ └── application.properties ├── Dockerfile └── pom.xml
+edulearn-backend/
+├── src/main/java/com/edulearn/backend/
+│   ├── config/          # Security & CORS
+│   ├── controller/      # REST API controllers
+│   ├── dto/             # Request/response DTOs
+│   ├── entity/          # JPA entities
+│   ├── repository/      # JPA repositories
+│   ├── security/        # JWT authentication
+│   ├── service/         # Business logic
+│   ├── service/impl/    # Service implementations
+│   └── EduLearnApplication.java
+├── src/main/resources/
+│   └── application.properties
+├── Dockerfile
+├── pom.xml
+├── .gitignore
+└── README.md
 
+## 🗄️ Database Schema
+
+| Table | Columns |
+|-------|---------|
+| `users` | id, name, email, password, role, created_at |
+| `courses` | id, title, author_name, description, thumbnail_url, price, youtube_video_url, documentation_content, status, created_at |
+| `enrollments` | id, student_id, course_id, completed, enrolled_at, completed_at |
+| `payments` | id, user_id, course_id, payment_method, transaction_id, amount, status, created_at |
+| `password_reset_tokens` | id, token, user_id, expiry_date |
+
+## 🔐 API Endpoints
+
+### Auth APIs (Public)
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/auth/register` | Register a new student | Public |
+| POST | `/api/auth/login` | Login, returns JWT | Public |
+| POST | `/api/auth/forgot-password` | Send password reset link | Public |
+| POST | `/api/auth/reset-password` | Reset password using token | Public |
+
+### Course APIs
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/api/courses` | All published courses | Public |
+| GET | `/api/courses/{id}` | Get single course | Public |
+| GET | `/api/admin/courses` | All courses including drafts | Admin |
+| POST | `/api/admin/courses` | Create course | Admin |
+| PUT | `/api/admin/courses/{id}` | Update course | Admin |
+| DELETE | `/api/admin/courses/{id}` | Delete course | Admin |
+
+### Enrollment APIs
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/enrollments` | Enroll in a course | Student |
+| GET | `/api/enrollments/student` | Get my enrollments | Student |
+| GET | `/api/enrollments/{id}` | Get single enrollment (Course Player) | Student |
+| PATCH | `/api/enrollments/{id}/complete` | Mark course as completed | Student |
+| GET | `/api/admin/courses/{courseId}/enrollments` | Get enrolled students | Admin |
+
+### Payment APIs
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/payment/simulate` | Process simulated payment and trigger enrollment | Student |
+
+### Admin APIs
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/api/admin/stats` | Platform-wide statistics | Admin |
+| GET | `/api/admin/students` | Get all registered students | Admin |
+
+### Profile APIs
+
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/api/profile` | Get logged-in user's profile | Authenticated |
+| PUT | `/api/profile` | Update profile name | Authenticated |
+
+---
+
+## ⚙️ Setup & Run Locally
+
+### Prerequisites
+
+- Java 21
+- MySQL 8.0
+- Maven
+
+### Steps
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/PriyankaMeshram19/edulearn-backend.git
+cd edulearn-backend
+
+# 2. Create the database
+mysql -u root -p
+CREATE DATABASE elearning_db;
+
+# 3. Configure application.properties
+# Add your database credentials, JWT secret, and mail settings
+
+# 4. Run the application
+./mvnw spring-boot:run
+```
+
+The API will be available at:
+
+`http://localhost:8080`
+
+---
+
+## 🚢 Deployment
+
+- **Backend:** Deployed as a Docker container on Render
+- **Database:** Hosted on Railway (MySQL)
+- **Environment Variables:** DB credentials, JWT secret, and mail API key are securely injected
+- **Security:** Secrets are never committed to source control
+- **CORS:** Restricted to the deployed frontend origin

@@ -182,3 +182,8 @@ The API will be available at:
 - **Environment Variables:** DB credentials, JWT secret, and mail API key are securely injected
 - **Security:** Secrets are never committed to source control
 - **CORS:** Restricted to the deployed frontend origin
+
+## 📸 Screenshots
+
+### Landing Page
+(https://github.com/PriyankaMeshram19/edulearn-frontend/raw/main/screenshots/1-landing-page.png)

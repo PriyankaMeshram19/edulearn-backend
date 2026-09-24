@@ -184,6 +184,5 @@ The API will be available at:
 - **CORS:** Restricted to the deployed frontend origin
 
 ## 📸 Screenshots
-
 ### Landing Page
 (https://github.com/PriyankaMeshram19/edulearn-frontend/raw/main/screenshots/1-landing_page.png)

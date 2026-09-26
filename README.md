@@ -186,3 +186,6 @@ The API will be available at:
 ## 📸 Screenshots
 ### Landing Page
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/1-landing-page.png" width="800"/>
+
+### Purchased courses dashboard
+<img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/2-Purchased courses dashboard.png" width="400"/>

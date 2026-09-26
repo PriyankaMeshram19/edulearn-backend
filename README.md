@@ -63,17 +63,19 @@ Students can browse courses, purchase them through a simulated payment gateway, 
 
 edulearn-backend/
 ├── src/main/java/com/edulearn/backend/
-│   ├── config/          # Security & CORS
-│   ├── controller/      # REST API controllers
-│   ├── dto/             # Request/response DTOs
-│   ├── entity/          # JPA entities
-│   ├── repository/      # JPA repositories
-│   ├── security/        # JWT authentication
-│   ├── service/         # Business logic
-│   ├── service/impl/    # Service implementations
+│   ├── config/             # Security & CORS
+│   ├── controller/         # REST API controllers
+│   ├── dto/                # Request/response DTOs
+│   ├── entity/             # JPA entities
+│   ├── repository/         # JPA repositories
+│   ├── security/           # JWT authentication
+│   ├── service/            # Business logic
+│   ├── service/impl/       # Service implementations
 │   └── EduLearnApplication.java
+│
 ├── src/main/resources/
 │   └── application.properties
+│
 ├── Dockerfile
 ├── pom.xml
 ├── .gitignore
@@ -210,3 +212,11 @@ The API will be available at:
 
 ### Admin Dashboard
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/7-Admin dashboard.png" width="800"/>
+
+## 👨‍💻 Developer
+
+**Priyanka Meshram**
+- 🔗 [GitHub](https://github.com/PriyankaMeshram19)
+- 🔗 [LinkedIn](PASTE_YOUR_LINKEDIN_URL_HERE)
+
+⭐ **If you found this project useful, consider giving it a star!** ⭐

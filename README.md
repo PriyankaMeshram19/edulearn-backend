@@ -187,20 +187,26 @@ The API will be available at:
 ### Landing Page
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/1-landing-page.png" width="800"/>
 
+
 ### Purchased courses dashboard
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/2-Purchased courses dashboard.png" width="800"/>
+
 
 ### Payment
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/3-payment.png" width="800"/>
 
+
 ### Payment Success
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/4-payment success.png" width="800"/>
+
 
 ## Course
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/5-course.png" width="800"/>
 
+
 ### Manage Course
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/6-Manage Course.png" width="800"/>
+
 
 ### Admin Dashboard
 <img src="https://github.com/PriyankaMeshram19/edulearn-backend/raw/main/screenshots/7-Admin dashboard.png" width="800"/>

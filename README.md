@@ -217,6 +217,6 @@ The API will be available at:
 
 **Priyanka Meshram**
 - 🔗 [GitHub](https://github.com/PriyankaMeshram19)
-- 🔗 [LinkedIn](linkedin.com/in/priyankaameshram)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/priyankaameshram)
 
 ⭐ **If you found this project useful, consider giving it a star!** ⭐

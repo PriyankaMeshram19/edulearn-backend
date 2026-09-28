@@ -21,6 +21,11 @@
 Students can browse courses, purchase them through a simulated payment gateway, watch course videos, and track their learning progress. Admins can manage the full course catalog and view enrollment analytics — all backed by a secure, role-based REST API.
 
 ---
+## 🎥 Project Demo
+
+[▶️ Watch the EduLearn Project Vedio](https://drive.google.com/file/d/15WzYtaO5ZQ1q15j-IdLGEjEdCL3emmYU/view?usp=sharing)
+
+---
 
 ## ✨ Features
 
